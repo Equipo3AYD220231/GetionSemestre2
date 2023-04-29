@@ -53,7 +53,7 @@ public class Semester {
     }
 
     public void setEvaluacionFinal(LocalDate evaluacionFinal) {
-        evaluacionFinal = evaluacionFinal;
+        this.evaluacionFinal = evaluacionFinal;
     }
 
     public LocalDate getHabilitacion() {
