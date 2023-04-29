@@ -8,15 +8,17 @@
 <body>
 	<div class="container">
 		<h1>Gestión de Semestres - UdeA</h1>
+
 		<h2>Consultar Semestres</h2>
-		<form id="form-consultar-semestres">
+		<button id="btn-consultar-semestres" >Consultar Semestres</button>
+		<ul id="lista-semestres"></ul>
+
 		<!-- campos del formulario para consultar semestres -->
               
-		<button id="btn-consultar-semestres" type="submit">Consultar Semestres</button>
-		<ul id="lista-semestres">    </ul>
-		</form>
-
-
+		
+		
+		
+		
         
 		<hr>
 		<h2>Añadir Semestre</h2>
@@ -26,7 +28,7 @@
              <div id="add-semester" class="mt-4">
             <h3>Agregar nuevo semestre</h3>
             <form>
-                <div class="form-group">
+                <div class="form-group"  id="semester-form">
                 <label for="fecha-inicio">Fecha de inicio:</label>
                 <input type="date" class="form-control" id="fecha-inicio" required>
                 </div>
