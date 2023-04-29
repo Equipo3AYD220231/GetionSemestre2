@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "semester")   //  <---  This is the name of the table in the database
+@Table(name = "semestre")   //  <---  This is the name of the table in the database
 public class Semester {
 
     @Id
