@@ -58,3 +58,43 @@ const form = document.querySelector('#form-anadir-semestre');
   
   });
   
+
+  /****  Tratamiento respuesta PUT       ***** */
+// Función para actualizar una tarea
+
+
+const formPUT = document.querySelector('#form-modificar-semestre');
+formPUT.addEventListener('submit', (event) => {
+event.preventDefault(); // evitar que el formulario se envíe por defecto
+
+ // obtener los valores ingresados en el formulario
+  const Id = parseInt(document.querySelector('#id-semestre').value);
+  const fechainicial = document.querySelector('#fecha-inicio').value;
+  const fechafinal = document.querySelector('#fecha-fin').value;
+  const evaluacionFinal = document.querySelector('#evaluacion-final').value;
+  const evaluacion40 = document.querySelector('#evaluacion-40').value;
+  const habilitacion = document.querySelector('#habilitacion').value;
+
+ // crear el objeto data con los valores del formulario
+ const putData = {
+   fechainicial : fechainicial,
+    fechafinal : fechafinal,
+    evaluacionFinal : evaluacionFinal,
+    habilitacion : habilitacion,
+    evaluacion40 : evaluacion40,
+    };
+
+
+ // enviar el objeto data al servidor utilizando fetch
+ fetch('http://localhost:8080/updatesemester/Id', {
+   method: 'PUT',
+   headers: {     'Content-Type': 'application/json'
+  
+  },
+   body: JSON.stringify(putData)
+ })
+   .then(response => response.json()) 
+   .then(json => console.log(json))
+   .catch(error => console.log(error));
+
+});

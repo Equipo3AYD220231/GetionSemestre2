@@ -27,7 +27,7 @@
 
              <div id="add-semester" class="mt-4">
             <h3>Agregar nuevo semestre</h3>
-            <form>
+            
                 <div class="form-group"  id="semester-form">
                 <label for="fecha-inicio">Fecha de inicio:</label>
                 <input type="date" class="form-control" id="fecha-inicio" required>
@@ -50,7 +50,7 @@
                 </div>
                 <button type="submit" class="btn btn-primary">Agregar semestre</button>
             </form>
-            </div>
+			
 
 
 			
@@ -62,7 +62,37 @@
 		<h2>Modificar Semestre</h2>
 		<form id="form-modificar-semestre">
 			<!-- campos del formulario para modificar un semestre -->
-			<button type="submit">Modificar</button>
+			<div id="add-semester" class="mt-4">
+				<h3>Agregar nuevo semestre</h3>
+					
+					<div class="form-group"  >
+						<label for="fecha-inicio">id semestre:</label>
+						<input type="number" class="form-control" id="id-semestre" required>
+					</div>
+					<div class="form-group"  >
+						<label for="fecha-inicio">Fecha de inicio:</label>
+						<input type="date" class="form-control" id="fecha-inicio" required>
+					</div>
+					<div class="form-group">
+						<label for="fecha-fin">Fecha de finalización:</label>
+						<input type="date" class="form-control" id="fecha-fin" required>
+					</div>
+					<div class="form-group">
+						<label for="evaluacion-final">Fecha de evaluación final:</label>
+						<input type="date" class="form-control" id="evaluacion-final" required>
+					</div>
+					<div class="form-group">
+						<label for="evaluacion-40">Fecha de evaluación del 40%:</label>
+						<input type="date" class="form-control" id="evaluacion-40" required>
+					</div>
+					<div class="form-group">
+						<label for="habilitacion">Fecha de habilitación:</label>
+						<input type="date" class="form-control" id="habilitacion" required>
+					</div>
+			<button type="submit" class="btn btn-primary">Agregar semestre</button>
+
+
+			
 		</form>
 		<hr>
 		<h2>Eliminar Semestre</h2>

@@ -1,4 +1,4 @@
 package com.fabrica.gestion.model;
 
-public class departmentChief {
+public class DepartmentChief {
 }
