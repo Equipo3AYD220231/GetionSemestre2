@@ -1,9 +1,5 @@
 package com.fabrica.gestion.model;
-
-
 import jakarta.persistence.*;
-import org.springframework.beans.factory.annotation.Autowired;
-
 import java.time.LocalDate;
 
 @Entity
@@ -14,6 +10,8 @@ public class Semester {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+ //  @Column
+   // private int codigoSemester;
     @Column
     private LocalDate fechainicial;
 
@@ -28,6 +26,11 @@ public class Semester {
 
     @Column
     private LocalDate habilitacion;
+
+   /* public Semester(int codigoSemester) {
+        this.codigoSemester = codigoSemester;
+    }
+*/
     public void setId(Long id) {
         this.id = id;
     }
