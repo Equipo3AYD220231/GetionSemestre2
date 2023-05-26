@@ -42,9 +42,10 @@ const form = document.querySelector('#form-anadir-semestre');
   const postData = {
     fechainicial : fechainicial,
     fechafinal : fechafinal,
-    evaluacionFinal : evaluacionFinal,
-    habilitacion : habilitacion,
     evaluacion40 : evaluacion40,
+    habilitacion : habilitacion,
+    evaluacionFinal : evaluacionFinal
+      
        };
 
      fetch('http://localhost:8080/savesemester', {
@@ -68,7 +69,7 @@ formPUT.addEventListener('submit', (event) => {
 event.preventDefault(); // evitar que el formulario se envíe por defecto
 
  // obtener los valores ingresados en el formulario
-  const Id = parseInt(document.querySelector('#id-semestre').value);
+  const Id = parseInt(document.getElementById('#id-semestre').value);
   const fechainicial = document.querySelector('#fecha-inicio').value;
   const fechafinal = document.querySelector('#fecha-fin').value;
   const evaluacionFinal = document.querySelector('#evaluacion-final').value;
@@ -77,16 +78,16 @@ event.preventDefault(); // evitar que el formulario se envíe por defecto
 
  // crear el objeto data con los valores del formulario
  const putData = {
-   fechainicial : fechainicial,
-    fechafinal : fechafinal,
-    evaluacionFinal : evaluacionFinal,
-    habilitacion : habilitacion,
-    evaluacion40 : evaluacion40,
+  fechainicial : fechainicial,
+  fechafinal : fechafinal,
+  evaluacion40 : evaluacion40,
+  habilitacion : habilitacion,
+  evaluacionFinal : evaluacionFinal,
     };
-
+console.log(putData);
 
  // enviar el objeto data al servidor utilizando fetch
- fetch('http://localhost:8080/updatesemester/Id', {
+ fetch('http://localhost:8080/updatesemester/${Id}', {
    method: 'PUT',
    headers: {     'Content-Type': 'application/json'
   
@@ -94,7 +95,8 @@ event.preventDefault(); // evitar que el formulario se envíe por defecto
    body: JSON.stringify(putData)
  })
    .then(response => response.json()) 
-   .then(json => console.log(json))
+   .then(updatedSemester =>{ console.log(updatedSemester);
+  })
    .catch(error => console.log(error));
 
 });
