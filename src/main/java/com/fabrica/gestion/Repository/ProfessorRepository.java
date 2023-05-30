@@ -1,4 +1,4 @@
-package com.fabrica.gestion.Repository;
+package com.fabrica.gestion.repository;
 
 public interface ProfessorRepository {
 }
