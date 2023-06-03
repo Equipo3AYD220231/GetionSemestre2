@@ -13,8 +13,6 @@ public class Semester {
    @Column
   private int codigoSemester;
 
-
-
     @Column
     private LocalDate fechainicial;
 

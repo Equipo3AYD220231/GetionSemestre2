@@ -95,8 +95,7 @@ console.log(putData);
    body: JSON.stringify(putData)
  })
    .then(response => response.json()) 
-   .then(updatedSemester =>{ console.log(updatedSemester);
-  })
+   .then(updatedSemester => console.log(updatedSemester))
    .catch(error => console.log(error));
 
 });
