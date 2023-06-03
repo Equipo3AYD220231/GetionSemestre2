@@ -10,9 +10,8 @@ public class Semester {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-   @Column
-  private int codigoSemester;
-
+ //  @Column
+   // private int codigoSemester;
     @Column
     private LocalDate fechainicial;
 
@@ -28,18 +27,14 @@ public class Semester {
     @Column
     private LocalDate habilitacion;
 
-
-
+   /* public Semester(int codigoSemester) {
+        this.codigoSemester = codigoSemester;
+    }
+*/
     public void setId(Long id) {
         this.id = id;
     }
-    public int getCodigoSemester() {
-        return codigoSemester;
-    }
 
-    public void setCodigoSemester(int codigoSemester) {
-        this.codigoSemester = codigoSemester;
-    }
     public LocalDate getFechainicial() {
         return fechainicial;
     }

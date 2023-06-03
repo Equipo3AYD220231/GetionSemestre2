@@ -1,7 +1,9 @@
-package com.fabrica.gestion.Controller;
+package com.fabrica.gestion.controller;
 
-import com.fabrica.gestion.Repository.SemesterRepository;
+import com.fabrica.gestion.interfaces.ISemesterService;
 import com.fabrica.gestion.model.Semester;
+import com.fabrica.gestion.repository.SemesterRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,41 +16,37 @@ import java.util.List;
 @RestController
 public class SemesterController {
 
-    @Autowired
-    private SemesterRepository semesterRepository;
+    private final ISemesterService semesterService;
+
+    public SemesterController( ISemesterService semesterService){
+        this.semesterService = semesterService;
+    }
+
+ 
    /*metodo encargado de pedir al Api rest los registro de la BD, desde el front   */
     @GetMapping("/semesters")
     public List<Semester> getSemester() {
-        return semesterRepository.findAll();
+        return semesterService.getSemester();
     }
 
     /*metodo encargado de enviar informacion a  la BD mediante APiRESt, desde el front.   */
     @PostMapping(value="/savesemester")
     public String saveSemesters(@RequestBody Semester semester) {
-        semesterRepository.save(semester);
-        return "saved semesters";
+        return semesterService.saveSemesters(semester);
     }
+
     /*metodo encargado de enviar informacion a  la BD mediante APiRESt, desde el front.   */
     @PutMapping(value= "/updatesemester/{id}")
     public String updateSemester(@PathVariable Long id, @RequestBody Semester semester) {
-        Semester  updatedSemester = semesterRepository.findById(id).get();
-        updatedSemester.setFechainicial(semester.getFechainicial());
-        updatedSemester.setFechafinal(semester.getFechafinal());
-        updatedSemester.setEvaluacionFinal(semester.getEvaluacionFinal());
-        updatedSemester.setEvaluacion40(semester.getEvaluacion40());
-        updatedSemester.setHabilitacion(semester.getHabilitacion());
-        semesterRepository.save(updatedSemester);
-
-        return "updated semester";
+        return semesterService.updateSemester(id, semester);
     }
 
     /*metodo encargado de enviar informacion a  la BD mediante APiRESt, desde el front.   */
     @DeleteMapping(value = "/deletesemester/{id}")
     public String deleteSemester(@PathVariable Long id) {
-        Semester deletedSemester = semesterRepository.findById(id).get();
-        semesterRepository.delete(deletedSemester);
-        return "deleted semester";
+        return deleteSemester(id);
     }
+    
     @Configuration
     public class CorsConfiguration {
 

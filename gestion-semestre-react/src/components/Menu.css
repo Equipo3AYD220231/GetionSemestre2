@@ -1,0 +1,15 @@
+.menu {
+    display: flex;
+    justify-content: space-between;
+    background-color: #00305a;
+    color: #fff;
+    padding: 10px;
+    font-size: 18px;
+  }
+  
+  .menu a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 10px;
+  }
+  
